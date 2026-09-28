@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klea Sabrina is Turning One & Holy Baptism!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #faf5f0;
+      --card-bg: #fffdfa;
+      --blush: #e8a598;
+      --blush-dark: #c97d6f;
+      --sage: #7d9681;
+      --text-dark: #4a403b;
+      --text-muted: #7c726d;
+      --gold: #d4af37;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #2b2b2b;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text-dark);
+      padding: 0;
+    }
+
+    .mobile-container {
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg-cream);
+      position: relative;
+      overflow-x: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      min-height: 100vh;
+    }
+
+    #envelope-screen {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      background: radial-gradient(circle, #fcf8f5 0%, #eddcd2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: opacity 0.8s ease, visibility 0.8s;
+      padding: 20px;
+    }
+
+    .invite-header-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--blush-dark);
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .envelope {
+      width: 250px;
+      height: 170px;
+      background: #df9487;
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.03);
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      border-top: 90px solid #c97d6f;
+      transform-origin: top;
+    }
+
+    .wax-seal {
+      width: 58px;
+      height: 58px;
+      background: radial-gradient(circle, #f3d078 0%, #b8860b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      z-index: 2;
+    }
+
+    .open-prompt {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--blush-dark);
+      background: rgba(255,255,255,0.7);
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid var(--blush);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .content-flow {
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(223, 148, 135, 0.12);
+      border: 1px solid #fae8e5;
+    }
+
+    .sub-tag {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .title-fairy {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--blush-dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .avatar-wrapper {
+      width: 150px;
+      height: 150px;
+      margin: 15px auto;
+      border-radius: 50%;
+      border: 4px dashed var(--blush);
+      padding: 5px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge-turning-one {
+      display: inline-block;
+      background: var(--blush);
+      color: white;
+      font-family: 'Playfair Display', serif;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      border: 1px solid rgba(223, 148, 135, 0.15);
+      text-align: center;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--blush-dark);
+      margin-bottom: 14px;
+    }
+
+    .location-box {
+      background: #fdfaf8;
+      border: 1px solid #f6ded8;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .loc-tag {
+      display: inline-block;
+      background: #fae8e5;
+      color: var(--blush-dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    .detail-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .detail-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-top: 2px;
+    }
+
+    .detail-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--blush);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--blush-dark);
+    }
+
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .timer-unit {
+      background: #fdf5f3;
+      padding: 10px 8px;
+      border-radius: 12px;
+      min-width: 60px;
+      border: 1px solid #fae8e5;
+    }
+
+    .timer-number {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--blush-dark);
+      display: block;
+    }
+
+    .timer-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .footer-note {
+      font-size: 0.95rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--blush-dark);
+      margin-top: 8px;
+      padding-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+
+    <!-- Envelope Screen -->
+    <div id="envelope-screen" onclick="openInvitation()">
+      <div class="invite-header-tag">You're Invited!</div>
+      <div class="envelope">
+        <div class="wax-seal">K</div>
+      </div>
+      <div class="open-prompt">Tap to Open</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-flow">
+
+      <!-- Hero Card -->
+      <div class="hero-card">
+        <div class="sub-tag">Fairytale Celebration</div>
+        <h1 class="title-fairy">Klea Sabrina</h1>
+        <span class="badge-turning-one">1st Birthday &amp; Holy Baptism</span>
+
+        <div class="avatar-wrapper">
+          <img 
+            src="https://i.ibb.co/VcLXFt01/Picsart-26-09-28-16-52-22-083.png" 
+            alt="Klea Sabrina" 
+            class="avatar-img"
+          >
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5;">
+          Join us as our little fairy receives the Holy Sacrament of Baptism and celebrates her very first birthday!
+        </p>
+      </div>
+
+      <!-- Live Countdown -->
+      <div class="section-card">
+        <h2 class="section-heading">Counting Down to the Magic</h2>
+        <div class="timer-container">
+          <div class="timer-unit">
+            <span class="timer-number" id="days">00</span>
+            <span class="timer-label">Days</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-number" id="hours">00</span>
+            <span class="timer-label">Hours</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-number" id="minutes">00</span>
+            <span class="timer-label">Mins</span>
+          </div>
+          <div class="timer-unit">
+            <span class="timer-number" id="seconds">00</span>
+            <span class="timer-label">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itinerary & Venues -->
+      <div class="section-card">
+        <h2 class="section-heading">Schedule &amp; Venues</h2>
+        <div style="font-size: 0.9rem; font-weight: 600; color: var(--blush-dark); margin-bottom: 16px;">
+          Saturday, October 17, 2026
+        </div>
+
+        <!-- Church Box -->
+        <div class="location-box">
+          <span class="loc-tag">1. Holy Baptism</span>
+          <div class="detail-value">10:00 AM</div>
+          <div class="detail-label">Ceremony Venue</div>
+          <div style="font-weight: 600; margin-top: 2px;">National Shrine of Our Lady of Fatima</div>
+          <div class="detail-sub">Marulas, Valenzuela City</div>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=National+Shrine+of+Our+Lady+of+Fatima+Marulas+Valenzuela" target="_blank" rel="noopener noreferrer">
+            Open Church Map
+          </a>
+        </div>
+
+        <!-- Reception Box -->
+        <div class="location-box">
+          <span class="loc-tag">2. Birthday Reception</span>
+          <div class="detail-value">12:00 PM (Noon)</div>
+          <div class="detail-label">Party Venue</div>
+          <div style="font-weight: 600; margin-top: 2px;">Kaboom Diner (Level 2)</div>
+          <div class="detail-sub">One Mall Valenzuela, Gen. T. de Leon, Valenzuela City</div>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=One+Mall+Valenzuela+Gen+T+de+Leon" target="_blank" rel="noopener noreferrer">
+            Open Reception Map
+          </a>
+        </div>
+      </div>
+
+      <!-- Gift Note Card -->
+      <div class="section-card">
+        <h2 class="section-heading">A Small Note on Gifts</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+          Your presence and prayers on our special day are the greatest gift of all. Should you wish to bless Klea with a present, children's storybooks, essentials, or monetary gifts for her future are warmly appreciated.
+        </p>
+      </div>
+
+      <div class="footer-note">
+        We can't wait to celebrate with you! ✨
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openInvitation() {
+      const envelope = document.getElementById('envelope-screen');
+      if (envelope) {
+        envelope.style.display = 'none';
+      }
+    }
+
+    const envelopeScreen = document.getElementById('envelope-screen');
+    if (envelopeScreen) {
+      envelopeScreen.addEventListener('click', openInvitation);
+      envelopeScreen.addEventListener('touchstart', openInvitation);
+    }
+
+    const targetDate = new Date('2026-10-17T10:00:00+08:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      } else {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
+
